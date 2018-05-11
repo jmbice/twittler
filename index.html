@@ -3,34 +3,182 @@
   <head>
     <meta charset="utf-8">
     <title>Twittler</title>
-    <link rel="stylesheet" src="main.css">
+    <link rel="stylesheet" href="main.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
   </head>
   <body>
+    <section>
+      <button id="feed-btn" class="feed-btn">My Feed</button>
+      <button id="shawn-btn" class="friend-btn">Shawn</button>
+      <button id="shark-btn" class="friend-btn">Shark</button>
+      <button id="mracus-btn" class="friend-btn">Mracus</button>
+      <button id="douglas-btn" class="friend-btn">Douglas</button>
 
+    </section>
 
-
-
+    <section class="tweets-wrapper">
+      <div id="feed" class="My-tweets">
+      </div>
+      <div id="shawn" class="friend-tweets">
+      </div>
+      <div id="shark" class="friend-tweets">
+      </div>
+      <div id="mracus" class="friend-tweets">
+      </div>
+      <div id="douglas" class="friend-tweets">
+      </div>
+    </section>
 
 
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        var mracusDisplayLength = 0;
+        var sharkDisplayLength = 0;
+        var douglasDisplayLength = 0;
+        var shawnDisplayLength = 0;
+        var totalDisplayLength = 0;
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
+        // var checkForTweets = function(){
+        //   var index = streams.home.length - 1;
+        //   while(index >= 0){
+        //     var tweet = streams.home[index];
+        //     var $tweet = $('<div></div>');
+        //     $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On:' + tweet.created_at);
+        //     $tweet.appendTo($('#feed'));
+        //     index -= 1;
+        //   }
+        // }
+        // checkForTweets();
+
+        var loadInitialTweets = function(){
+          // var index = streams.users.mracus.length-1;
+          // for (var j = 0; j <= index; j++){
+          //   var tweet = streams.users.mracus[j];
+          //   var $tweet = $('<div></div>');
+          //   $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On:' + tweet.created_at);
+          //   $tweet.appendTo($('#mracus'))
+          // }
+          // mracusDisplayLength = streams.users.mracus.length;
+
+        for (var j = 0; j < streams.home.length; j++){
+          var tweet = streams.home[j];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On:' + tweet.created_at);
+          $tweet.appendTo($('#feed'));
+          totalDisplayLength++;
+            //above appends each tweet to main feed
+            //below appends each tweet to contributor's list
+          if (tweet.user === 'mracus'){
+            $tweet.appendTo($('#mracus'));
+            mracusDisplayLength++;
+          } else if (tweet.user === 'shawndrost') {
+            $tweet.appendTo($('#shawn'));
+            shawnDisplayLength++;
+          } else if (tweet.user === 'douglascalhoun') {
+            $tweet.appendTo($('#douglas'));
+            douglasDisplayLength++;
+          } else if (tweet.user === 'sharksforcheap') {
+            $tweet.appendTo($('#shark'));
+            sharkDisplayLength++;
+          } else {
+            null;
+          };
+        };
+      };
+
+      loadInitialTweets();
+
+
+        var newMracusTweets = function(){
+          var currentLength = streams.users.mracus.length;
+          if (currentLength > mracusDisplayLength){
+            for (var j = mracusDisplayLength; j < currentLength; j++){
+              var tweet = streams.users.mracus[j];
+              var $tweet = $('<div></div>');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On: ' + tweet.created_at);
+              $tweet.appendTo($('#mracus'))
+              mracusDisplayLength = currentLength;
+            }
+          }
         }
+
+        var newSharkTweets = function(){
+          var currentLength = streams.users.sharksforcheap.length;
+          if (currentLength > sharkDisplayLength){
+            for (var j = sharkDisplayLength; j < currentLength; j++){
+              var tweet = streams.users.sharksforcheap[j];
+              var $tweet = $('<div></div>');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On: ' + tweet.created_at);
+              $tweet.appendTo($('#shark'))
+              sharkDisplayLength = currentLength;
+            }
+          }
+        }
+
+        var newShawnTweets = function(){
+          var currentLength = streams.users.shawndrost.length;
+          if (currentLength > shawnDisplayLength){
+            for (var j = shawnDisplayLength; j < currentLength; j++){
+              var tweet = streams.users.shawndrost[j];
+              var $tweet = $('<div></div>');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On: ' + tweet.created_at);
+              $tweet.appendTo($('#shawn'))
+              shawnDisplayLength = currentLength;
+            }
+          }
+        }
+
+        var newDouglasTweets = function(){
+          console.log(streams.users.douglascalhoun)
+          var currentLength = streams.users.douglascalhoun.length;
+          if (currentLength > douglasDisplayLength){
+            for (var j = douglasDisplayLength; j < currentLength; j++){
+              var tweet = streams.users.douglascalhoun[j];
+              var $tweet = $('<div></div>');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message + ' Tweet Created On: ' + tweet.created_at);
+              $tweet.appendTo($('#douglas'))
+              douglasDisplayLength = currentLength;
+            }
+          }
+        }
+      //
+      //   console.log(users);
+      // //console.log(streams.home)
+      //   console.log(streams.users.mracus[0]['message']);
+
+          // $('#Me-btn').on('click', function(){
+          //   checkForTweets();
+          // })
+          $('#feed-btn').on('click', function(){
+            $('#feed').fadeToggle(0);
+          });
+
+          $('#shawn-btn').on('click', function(){
+            $('#shawn').fadeToggle(0);
+            newShawnTweets();
+          });
+
+          $('#shark-btn').on('click', function(){
+            $('#shark').fadeToggle(0);
+            newSharkTweets();
+          });
+
+          $('#mracus-btn').on('click', function(){
+            $('#mracus').fadeToggle(0);
+            newMracusTweets();
+          });
+
+          $('#douglas-btn').on('click', function(){
+            $('#douglas').fadeToggle(0);
+            newDouglasTweets();
+          });
+          // ($tweet.text('@' + tweet.user.sharksforcheap + ': ' + tweet.message)
 
       });
 
     </script>
   </body>
+
 </html>
