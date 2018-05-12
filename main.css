@@ -57,9 +57,31 @@ body {
   background: #293f50;
   color: #888;
   font: 300 16px/22px  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+.friend-tweets, .my-tweets {
+  color: white;
 }
 
 .friend-tweets {
   display: none;
-  color: white;
+}
+
+/*
+  ========================================
+  Links
+  ========================================
+*/
+
+a {
+  color: #B4F2FF;
+  text-decoration: none;
+}
+a:hover {
+  color: #A4A6E8;
+}
+
+a:visited {
+  color: #A4CAE8
 }
