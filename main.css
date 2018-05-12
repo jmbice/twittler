@@ -68,6 +68,9 @@ body {
   display: none;
 }
 
+.active {
+  display:inherit;
+}
 /*
   ========================================
   Links
