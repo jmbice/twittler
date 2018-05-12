@@ -4,13 +4,14 @@ var douglasDisplayLength = 0;
 var shawnDisplayLength = 0;
 var currentCount = 0;
 
-var snippet = ' TWEET CREATED ON: '
+var snippet = ' | '
+var dateFormat = 'dddd, h:mm a'
 
 var loadInitialTweets = function(){
   for (var j = 0; j < streams.home.length; j++){
     var tweet = streams.home[j];
-    var $tweet = $('<div></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+    var $tweet = $('<div class="tweetz"></div>');
+    $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
     $tweet.appendTo($('#feed'));
     currentCount++;
   };
@@ -23,7 +24,7 @@ var refreshFeed = function(){
     for (var j = currentCount; j < currentLength; j++){
       var tweet = streams.home[j];
       var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
       $tweet.appendTo($('#feed'));
     }
   currentCount = currentLength;
@@ -37,7 +38,7 @@ var newMracusTweets = function(){
     for (var j = mracusDisplayLength; j < currentLength; j++){
       var tweet = streams.users.mracus[j];
       var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
       $tweet.appendTo($('#mracus'))
     }
     mracusDisplayLength = currentLength;
@@ -51,7 +52,7 @@ var newSharkTweets = function(){
     for (var j = sharkDisplayLength; j < currentLength; j++){
       var tweet = streams.users.sharksforcheap[j];
       var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
       $tweet.appendTo($('#shark'))
     }
     sharkDisplayLength = currentLength;
@@ -65,7 +66,7 @@ var newShawnTweets = function(){
     for (var j = shawnDisplayLength; j < currentLength; j++){
       var tweet = streams.users.shawndrost[j];
       var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
       $tweet.appendTo($('#shawn'))
     }
     shawnDisplayLength = currentLength;
@@ -79,7 +80,7 @@ var newDouglasTweets = function(){
     for (var j = douglasDisplayLength; j < currentLength; j++){
       var tweet = streams.users.douglascalhoun[j];
       var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + tweet.created_at);
+      $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
       $tweet.appendTo($('#douglas'))
     }
     douglasDisplayLength = currentLength;
