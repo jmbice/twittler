@@ -13,10 +13,6 @@
   <body>
     <section>
       <div id="feed-btn" class="feed-btn">My Feed</div>
-      <div id="shawn-btn" class="friend-btn">Shawn</div>
-      <div id="shark-btn" class="friend-btn">Shark</div>
-      <div id="mracus-btn" class="friend-btn">Mracus</div>
-      <div id="douglas-btn" class="friend-btn">Douglas</div>
     </section>
 
     <section class="tweets-wrapper">
@@ -37,44 +33,38 @@
         loadInitialTweets();
 
 
-        //
-        // $('.item').click(function(){
-        //     $(this).addClass('active').siblings().removeClass('active')
-        // })
+        //click handlers for @links...
+        $('body').on('click', '.douglas-link', function(){
+          $('#douglas').addClass('active').siblings().removeClass('active');
+          //fadeToggle(0);
+          newDouglasTweets();
+        });
 
+        $('body').on('click', '.mracus-link', function(){
+          $('#mracus').addClass('active').siblings().removeClass('active');
+          //fadeToggle(0);
+          newMracusTweets();
+        });
 
+        $('body').on('click', '.shawn-link', function(){
+          $('#shawn').addClass('active').siblings().removeClass('active');
+          //fadeToggle(0);
+          newShawnTweets();
+        });
 
+        $('body').on('click', '.shark-link', function(){
+          $('#shark').addClass('active').siblings().removeClass('active');
+          //fadeToggle(0);
+          newSharkTweets();
+        });
 
-
+        // Feed button
         $('#feed-btn').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
           //fadeToggle(0);
           refreshFeed();
         });
 
-        $('#shawn-btn').on('click', function(){
-          $('#shawn').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
-          newShawnTweets();
-        });
-
-        $('#shark-btn').on('click', function(){
-          $('#shark').addClass('active').siblings().removeClass('active');
-      //    fadeToggle(0);
-          newSharkTweets();
-        });
-
-        $('#mracus-btn').on('click', function(){
-          $('#mracus').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
-          newMracusTweets();
-        });
-
-        $('#douglas-btn').on('click', function(){
-          $('#douglas').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
-          newDouglasTweets();
-        });
 
       });
     </script>
