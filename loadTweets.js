@@ -10,7 +10,7 @@ var dateFormat = 'dddd, h:mm a'
 var loadInitialTweets = function(){
   for (var j = 0; j < streams.home.length; j++){
     var tweet = streams.home[j];
-    var $tweet = $('<div class="tweetz"></div>');
+    var $tweet = $('<div></div>');
     $tweet.text('@' + tweet.user + ': ' + tweet.message + snippet + moment(tweet.created_at).format(dateFormat));
     $tweet.appendTo($('#feed'));
     currentCount++;
@@ -90,18 +90,18 @@ var newDouglasTweets = function(){
 
 var refreshLinks = function(){
   $(".tweets-wrapper:contains('@mracus')").html(function(_, html) {
-    return  html.replace(/@mracus/g, '<a href="https://google.com/$1">@ marcus</a>')
+    return  html.replace(/@mracus/g, "<a class='mracus-link'>@ marcus</a>")
   });
 
   $(".tweets-wrapper:contains('@sharksforcheap')").html(function(_, html) {
-    return  html.replace(/@sharksforcheap/g, '<a href="https://google.com/$1">@ sharksforcheap</a>')
+    return  html.replace(/@sharksforcheap/g, "<a class='shark-link'>@ sharksforcheap</a>")
   });
 
   $(".tweets-wrapper:contains('@douglascalhoun')").html(function(_, html) {
-    return  html.replace(/@douglascalhoun/g, '<a href="https://google.com/$1">@ douglascalhoun</a>')
+    return  html.replace(/@douglascalhoun/g, "<a class='douglas-link'>@ douglascalhoun</a>")
   });
 
   $(".tweets-wrapper:contains('@shawndrost')").html(function(_, html) {
-    return  html.replace(/@shawndrost/g, '<a href="https://google.com/$1">@ shawndrost</a>')
+    return  html.replace(/@shawndrost/g, "<a class='shawn-link'>@ shawndrost</a>")
   });
 }
