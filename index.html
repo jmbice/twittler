@@ -11,27 +11,39 @@
 
   </head>
   <body>
-    <section>
-      <div id="feed-btn" class="feed-btn">My Feed</div>
-    </section>
+    <section="wrapper">
 
-    <section class="tweets-wrapper">
-      <div id="feed" class="friend-tweets active">
-      </div>
-      <div id="shawn" class="friend-tweets">
-      </div>
-      <div id="shark" class="friend-tweets">
-      </div>
-      <div id="mracus" class="friend-tweets">
-      </div>
-      <div id="douglas" class="friend-tweets">
-      </div>
+      <section class="header">
+        <div class="feed-btn"><img src="profile_pic.png"><h1 class="title">on Twittler</h1></div>
+      </section><!--
+
+      --><section class="tweets-wrapper">
+      <form class="form">
+        <input type="text" name="my-written-tweet"></input>
+        <div class="submit-tweet-btn btn">Twittle</div>
+      </form>
+        <div id="feed" class="friend-tweets active">
+        </div>
+        <div id="shawn" class="friend-tweets">
+        </div>
+        <div id="shark" class="friend-tweets">
+        </div>
+        <div id="mracus" class="friend-tweets">
+        </div>
+        <div id="douglas" class="friend-tweets">
+        </div>
+      </section>
+
+      <section class="footer">
+        <div class="friends-list">
+          <p>&#169; Jordan Bice </p>
+        </div>
+      </section>
     </section>
 
     <script>
       $(document).ready(function(){
         loadInitialTweets();
-
 
         //click handlers for @links...
         $('body').on('click', '.douglas-link', function(){
@@ -55,11 +67,10 @@
         });
 
         // Feed button
-        $('#feed-btn').on('click', function(){
+        $('.feed-btn').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
           refreshFeed();
         });
-
 
       });
     </script>

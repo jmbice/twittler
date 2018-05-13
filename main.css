@@ -49,19 +49,24 @@ table {
 
 /*
   ========================================
-  Custom styles
+  General
   ========================================
 */
 
 body {
   background: #293f50;
-  color: #888;
   font: 300 16px/22px  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
+/*
+  ========================================
+  Tweet Panels
+  ========================================
+*/
+
 .friend-tweets, .my-tweets {
-  color: white;
+  color: black;
 }
 
 .friend-tweets {
@@ -71,6 +76,63 @@ body {
 .active {
   display:inherit;
 }
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+.header {
+  font-size: 20px;
+  line-height: 40px;
+  padding: 20px 80px 0px 80px;
+}
+
+.header img {
+  border-radius: 50%;
+  border: 1.5px solid white;
+  height: 160px;
+  background-color: #B4B6FF;
+  margin: 25px 50px 13.5px 0
+}
+
+.feed-btn {
+  display: inline-block;
+}
+
+.title {
+  position: absolute;
+  margin: 90px 0 0 0;
+}
+
+/*
+  ========================================
+  Tweets Panels
+  ========================================
+*/
+
+.tweets-wrapper {
+  border-top: 1.5px solid #fff;
+  font-size: 25px;
+  line-height: 55px;
+  margin-top: 20px;
+  padding: 18.5px 80px 20px 85px;
+  background: #B4F2FF;
+  background: -webkit-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+  background:    -moz-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+  background:         linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+}
+
+.form {
+  padding: 10px 0 10px 0
+}
+
+.footer {
+  padding: 20px 80px 17.5px 85px;
+  color: #D6DBD8;
+}
+
 /*
   ========================================
   Links
@@ -78,13 +140,61 @@ body {
 */
 
 a {
-  color: #B4F2FF;
+  color: #5C4EE8;
   text-decoration: none;
 }
+
 a:hover {
   color: #A4A6E8;
 }
 
-a:visited {
-  color: #B4F2FF
+
+/*
+  ========================================
+  Twitter Input
+  ========================================
+*/
+
+.btn {
+  border: 1px solid #fff;
+  background: #B4B6FF;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  padding: 11px 30px;
+
+}
+
+.btn:hover {
+  background: #9D9EDE;
+}
+
+.submit-tweet-btn {
+  margin: 0 0 0 10px;
+  padding: 5px 30px;
+}
+
+input {
+  border-radius: 5px;
+  font: 400 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 8px;
+  width: 40%;
+}
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+
+h1 {
+  color: #fff;
+  font-size: 90px;
+  line-height: 40px;
+  display:inline-block;
 }
