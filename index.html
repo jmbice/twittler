@@ -36,32 +36,27 @@
         //click handlers for @links...
         $('body').on('click', '.douglas-link', function(){
           $('#douglas').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
           newDouglasTweets();
         });
 
         $('body').on('click', '.mracus-link', function(){
           $('#mracus').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
           newMracusTweets();
         });
 
         $('body').on('click', '.shawn-link', function(){
           $('#shawn').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
           newShawnTweets();
         });
 
         $('body').on('click', '.shark-link', function(){
           $('#shark').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
           newSharkTweets();
         });
 
         // Feed button
         $('#feed-btn').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
-          //fadeToggle(0);
           refreshFeed();
         });
 
