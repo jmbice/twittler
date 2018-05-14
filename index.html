@@ -28,13 +28,13 @@
         </div>
         <div id="cake" class="tweets-panel">
         </div>
-        <div id="douglas" class="tweets-panel">
+        <div id="douglascalhoun" class="tweets-panel">
         </div>
         <div id="mracus" class="tweets-panel">
         </div>
-        <div id="shawn" class="tweets-panel">
+        <div id="shawndrost" class="tweets-panel">
         </div>
-        <div id="shark" class="tweets-panel">
+        <div id="sharksforcheap" class="tweets-panel">
         </div>
 
       </section>
@@ -48,38 +48,38 @@
 
     <script>
       $(document).ready(function(){
-        generateUserTweets("One two three")
+        myTweets("One two three")
         loadFeed();
 
         //click handlers for feed button
         $('.feed').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
-          refreshFeed();
+          refreshFeed('feed');
         });
         //click handlers for @handles...
-        $('body').on('click', '#douglas-link', function(){
-          $('#douglas').addClass('active').siblings().removeClass('active');
-          douglasFeed();
-        });
-
         $('body').on('click', '#cake-link', function(){
           $('#cake').addClass('active').siblings().removeClass('active');
-          cakeFeed();
+          refreshFeed('cake');
+        });
+        
+        $('body').on('click', '#douglas-link', function(){
+          $('#douglascalhoun').addClass('active').siblings().removeClass('active');
+          refreshFeed('douglascalhoun');
         });
 
         $('body').on('click', '#mracus-link', function(){
           $('#mracus').addClass('active').siblings().removeClass('active');
-          mracusFeed();
+          refreshFeed('mracus');
         });
 
         $('body').on('click', '#shawn-link', function(){
-          $('#shawn').addClass('active').siblings().removeClass('active');
-          shawnFeed();
+          $('#shawndrost').addClass('active').siblings().removeClass('active');
+          refreshFeed('shawndrost');
         });
 
         $('body').on('click', '#shark-link', function(){
-          $('#shark').addClass('active').siblings().removeClass('active');
-          sharkFeed();
+          $('#sharksforcheap').addClass('active').siblings().removeClass('active');
+          refreshFeed('sharksforcheap');
         });
 
 
