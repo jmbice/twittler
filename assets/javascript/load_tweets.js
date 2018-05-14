@@ -9,16 +9,6 @@ var tweetCounts = {
   feed: 0,
 };
 
-// writes your tweets
-var myTweets = function(tweetText){
-  var tweet = {};
-  tweet.user = 'cake';
-  tweet.message = tweetText;
-  tweet.created_at = moment();
-  streams.home.push(tweet);
-  cakeTweets.push(tweet);
-};
-
 // load home feed
 var loadFeed = function(){
   for (var j = 0; j < streams.home.length; j++){
@@ -56,6 +46,21 @@ var refreshFeed = function(handle){
   formatTweets();
 }
 
+// writes your tweets
+var myTweets = function(tweetText){
+  var tweet = {};
+  tweet.user = 'cake';
+  tweet.message = tweetText;
+  tweet.created_at = moment();
+  streams.home.push(tweet);
+  cakeTweets.push(tweet);
+};
+
+var submitTwit = function() {
+  var textArea= document.getElementById("twitTextArea").value;
+  myTweets(textArea);
+  $('#cake').hasClass('active') ? refreshFeed('cake') : refreshFeed('feed');
+}
 
 // Format tweet handles and times
 var formatTweets = function(){
