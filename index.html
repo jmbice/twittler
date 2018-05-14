@@ -3,35 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Twittler</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-    <script src="loadTweets.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <script src="assets/javascript/jquery.js"></script>
+    <script src="assets/javascript/data_generator.js"></script>
+    <script src="assets/javascript/load_tweets.js" type="text/javascript"></script>
     <script src="node_modules/moment/moment.js"></script>
-
   </head>
   <body>
     <section="wrapper">
 
       <section class="header">
-        <div class="feed-btn"><img src="profile_pic.png"><h1 class="title">on Twittler</h1></div>
+        <div class="feed"><img src="assets/images/profile_pic.png">
+        <h1 class="title">on Twittler</h1></div>
       </section><!--
 
-      --><section class="tweets-wrapper">
-      <form class="form">
-        <input type="text" name="my-written-tweet"></input>
-        <div class="submit-tweet-btn btn">Twittle</div>
-      </form>
-        <div id="feed" class="friend-tweets active">
+     --><section class="tweets-wrapper">
+        <form action="javascript: generateUserTweets();" class="form">
+          <textarea form="form" maxlength="99" rows="2" cols="10" placeholder="Twit your wit to the world..."></textarea>
+          <!--<input type="text" placeholder="Twit your wit to the world..."></input> -->
+          <input type="submit" value="Twit" form="form" class="submit-tweet-btn btn"></input>
+        </form>
+
+        <div id="feed" class="tweets-panel active">
         </div>
-        <div id="shawn" class="friend-tweets">
+        <div id="cake" class="tweets-panel">
         </div>
-        <div id="shark" class="friend-tweets">
+        <div id="douglas" class="tweets-panel">
         </div>
-        <div id="mracus" class="friend-tweets">
+        <div id="mracus" class="tweets-panel">
         </div>
-        <div id="douglas" class="friend-tweets">
+        <div id="shawn" class="tweets-panel">
         </div>
+        <div id="shark" class="tweets-panel">
+        </div>
+
       </section>
 
       <section class="footer">
@@ -43,34 +48,40 @@
 
     <script>
       $(document).ready(function(){
-        loadInitialTweets();
+        generateUserTweets("One two three")
+        loadFeed();
 
-        //click handlers for @links...
-        $('body').on('click', '.douglas-link', function(){
-          $('#douglas').addClass('active').siblings().removeClass('active');
-          newDouglasTweets();
-        });
-
-        $('body').on('click', '.mracus-link', function(){
-          $('#mracus').addClass('active').siblings().removeClass('active');
-          newMracusTweets();
-        });
-
-        $('body').on('click', '.shawn-link', function(){
-          $('#shawn').addClass('active').siblings().removeClass('active');
-          newShawnTweets();
-        });
-
-        $('body').on('click', '.shark-link', function(){
-          $('#shark').addClass('active').siblings().removeClass('active');
-          newSharkTweets();
-        });
-
-        // Feed button
-        $('.feed-btn').on('click', function(){
+        //click handlers for feed button
+        $('.feed').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
           refreshFeed();
         });
+        //click handlers for @handles...
+        $('body').on('click', '#douglas-link', function(){
+          $('#douglas').addClass('active').siblings().removeClass('active');
+          douglasFeed();
+        });
+
+        $('body').on('click', '#cake-link', function(){
+          $('#cake').addClass('active').siblings().removeClass('active');
+          cakeFeed();
+        });
+
+        $('body').on('click', '#mracus-link', function(){
+          $('#mracus').addClass('active').siblings().removeClass('active');
+          mracusFeed();
+        });
+
+        $('body').on('click', '#shawn-link', function(){
+          $('#shawn').addClass('active').siblings().removeClass('active');
+          shawnFeed();
+        });
+
+        $('body').on('click', '#shark-link', function(){
+          $('#shark').addClass('active').siblings().removeClass('active');
+          sharkFeed();
+        });
+
 
       });
     </script>
