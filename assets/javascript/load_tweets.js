@@ -21,7 +21,7 @@ var loadFeed = function(){
   formatTweets();
 };
 
-// refresh feeds based on handle parameter (feed, douglascalhoun, cake, mracus, shawndrost, sharksforcheap)
+// refresh feeds based on handle parameter options: feed, douglascalhoun, cake, mracus, shawndrost, sharksforcheap
 var refreshFeed = function(handle){
   var destination = '#' + handle;
   var source;
@@ -46,7 +46,7 @@ var refreshFeed = function(handle){
   formatTweets();
 }
 
-// writes your tweets
+// format and push tweets to feed/personal feed
 var myTweets = function(tweetText){
   var tweet = {};
   tweet.user = 'cake';
@@ -57,9 +57,12 @@ var myTweets = function(tweetText){
 };
 
 var submitTwit = function() {
-  var textArea= document.getElementById("twitTextArea").value;
-  myTweets(textArea);
-  $('#cake').hasClass('active') ? refreshFeed('cake') : refreshFeed('feed');
+  var textArea = document.getElementById("twitTextArea").value;
+  textArea = textArea.replace(/\•/g, "*");
+  textArea.length > 0 ? myTweets(textArea) : null;
+  textArea.length > 0 ?
+      $('#cake').hasClass('active') ? refreshFeed('cake') : refreshFeed('feed')
+      : null;
 }
 
 // Format tweet handles and times
