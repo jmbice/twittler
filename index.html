@@ -18,10 +18,10 @@
       </section><!--
 
      --><section class="tweets-wrapper">
-        <form action="javascript: generateUserTweets();" class="form">
-          <textarea form="form" maxlength="99" rows="2" cols="10" placeholder="Twit your wit to the world..."></textarea>
+        <form class="form" id="myForm">
+          <textarea id="twitTextArea" maxlength="66" rows="2" cols="10" placeholder="Twit your wit to the world..."></textarea>
           <!--<input type="text" placeholder="Twit your wit to the world..."></input> -->
-          <input type="submit" value="Twit" form="form" class="submit-tweet-btn btn"></input>
+          <button type="button" onclick="submitTwit();" class="submit-tweet-btn btn">Twit</button>
         </form>
 
         <div id="feed" class="tweets-panel active">
@@ -48,20 +48,23 @@
 
     <script>
       $(document).ready(function(){
-        myTweets("One two three")
+        //myTweets("One two three")
         loadFeed();
+
+
 
         //click handlers for feed button
         $('.feed').on('click', function(){
           $('#feed').addClass('active').siblings().removeClass('active');
           refreshFeed('feed');
         });
+
         //click handlers for @handles...
         $('body').on('click', '#cake-link', function(){
           $('#cake').addClass('active').siblings().removeClass('active');
           refreshFeed('cake');
         });
-        
+
         $('body').on('click', '#douglas-link', function(){
           $('#douglascalhoun').addClass('active').siblings().removeClass('active');
           refreshFeed('douglascalhoun');
