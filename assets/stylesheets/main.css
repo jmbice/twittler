@@ -74,7 +74,7 @@ body {
   background: -webkit-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
   background:    -moz-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
   background:         linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
-  min-width: 900px;
+  min-width: 1000px;
 }
 
 .tweets-panel, .my-tweets {
@@ -101,6 +101,7 @@ body {
   border-radius: 5px;
   margin: 10px 0 10px 0;
   padding: 10px 7px 10px 14px;
+  word-wrap: break-word;
 }
 
 #time{
