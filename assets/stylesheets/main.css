@@ -56,20 +56,34 @@ table {
 body {
   background: #293f50;
   font: 300 16px/22px  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 
 /*
   ========================================
-  Tweet Panels
+  Tweets & Tweet Panels
   ========================================
 */
 
-.friend-tweets, .my-tweets {
-  color: black;
+.tweets-wrapper {
+  border-top: 3px solid #fff;
+  font-size: 25px;
+  line-height: 30px;
+  margin-top: 20px;
+  padding: 18.5px 80px 20px 85px;
+  background: #B4F2FF;
+  background: -webkit-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+  background:    -moz-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+  background:         linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
+  min-width: 900px;
 }
 
-.friend-tweets {
+.tweets-panel, .my-tweets {
+  color: grey;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.tweets-panel {
   display: none;
 }
 
@@ -77,6 +91,23 @@ body {
   display:inherit;
 }
 
+.form {
+  padding: 5px 0 10px 0;
+}
+
+.individual-tweets{
+  background-color: #fff;
+  border: 1px solid #A4A6E8;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  padding: 10px 7px 10px 14px;
+}
+
+#time{
+  color: #E1D9FF;
+  display:table;
+  font-size: 20px;
+}
 /*
   ========================================
   Header
@@ -85,48 +116,36 @@ body {
 
 .header {
   font-size: 20px;
+  height: 115px;
   line-height: 40px;
   padding: 20px 80px 0px 80px;
 }
 
 .header img {
   border-radius: 50%;
-  border: 1.5px solid white;
-  height: 160px;
+  border: 3px solid #fff;
+  height: 240px;
   background-color: #B4B6FF;
-  margin: 25px 50px 13.5px 0
+  margin: -25px 50px 0 0;
+  position: absolute;
 }
 
-.feed-btn {
+.feed{
   display: inline-block;
 }
 
 .title {
   position: absolute;
-  margin: 90px 0 0 0;
+  margin: 30px 0 0 275px;
+  min-width: 800px;
 }
 
 /*
   ========================================
-  Tweets Panels
+  Footer
   ========================================
 */
 
-.tweets-wrapper {
-  border-top: 1.5px solid #fff;
-  font-size: 25px;
-  line-height: 55px;
-  margin-top: 20px;
-  padding: 18.5px 80px 20px 85px;
-  background: #B4F2FF;
-  background: -webkit-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
-  background:    -moz-linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
-  background:         linear-gradient(to right, #B4F2FF 70%, #D9D8FF);
-}
-
-.form {
-  padding: 10px 0 10px 0
-}
 
 .footer {
   padding: 20px 80px 17.5px 85px;
@@ -140,14 +159,19 @@ body {
 */
 
 a {
-  color: #5C4EE8;
+  color: #A4A6E8;
   text-decoration: none;
+  font-weight: 400;
 }
 
 a:hover {
-  color: #A4A6E8;
+  color: #9D9EDE;  /* formerly: 5C4EE8; */
 }
 
+
+.links{
+  cursor: pointer;
+}
 
 /*
   ========================================
@@ -161,11 +185,11 @@ a:hover {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+  font-size: 30px;
   font-weight: 400;
   letter-spacing: .5px;
-  margin: 0;
-  padding: 11px 30px;
+  display: inline-block;
+  position: absolute;
 
 }
 
@@ -174,15 +198,21 @@ a:hover {
 }
 
 .submit-tweet-btn {
-  margin: 0 0 0 10px;
-  padding: 5px 30px;
+  margin: 1px 0 0 30px;
+  padding: 16px 30px;
+  font-style: italic;
 }
 
-input {
+textarea {
+  border: 1px solid #A4A6E8;
   border-radius: 5px;
-  font: 400 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: 8px;
-  width: 40%;
+  font: 300 22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 10px 20px;
+  width: 45%;
+  margin: 0 0 0 270px;
+  display: inline-block;
+  line-height: 25px;
+  resize: none;
 }
 
 /*
@@ -196,5 +226,4 @@ h1 {
   color: #fff;
   font-size: 90px;
   line-height: 40px;
-  display:inline-block;
 }
