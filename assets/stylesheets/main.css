@@ -55,7 +55,7 @@ table {
 
 body {
   background: #293f50;
-  font: 300 16px/22px  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 300 16px/22px  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*
@@ -67,6 +67,7 @@ body {
 .tweets-wrapper {
   border-top: 3px solid #fff;
   font-size: 25px;
+  letter-spacing: 0.1px;
   line-height: 30px;
   margin-top: 20px;
   padding: 18.5px 80px 20px 85px;
