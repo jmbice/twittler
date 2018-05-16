@@ -55,7 +55,6 @@ table {
 
 body {
   background: #293f50;
-  font: 300 16px/22px  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*
@@ -223,6 +222,9 @@ textarea {
   ========================================
 */
 
+body {
+  font: 300 16px/22px  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 h1 {
   color: #fff;

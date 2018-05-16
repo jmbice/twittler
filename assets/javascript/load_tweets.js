@@ -57,10 +57,10 @@ var myTweets = function(tweetText){
 };
 
 var submitTwit = function() {
-  var textArea = document.getElementById("twitTextArea").value;
-  textArea = textArea.replace(/\•/g, "*");
-  textArea.length > 0 ? myTweets(textArea) : null;
-  textArea.length > 0 ?
+  var tweetText = document.getElementById("twitTextArea").value;
+  tweetText = tweetText.replace(/\•/g, "*");
+  tweetText.length > 0 ? myTweets(tweetText) : null;
+  tweetText.length > 0 ?
       $('#cake').hasClass('active') ? refreshFeed('cake') : refreshFeed('feed')
       : null;
 }
